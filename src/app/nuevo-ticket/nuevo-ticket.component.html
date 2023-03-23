@@ -1,24 +1,27 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label for="first-name">Nombre: </label>
-  <input id="first-name" type="text" formControlName="firstName" required>
+  <label for="name">Nombre: </label>
+  <input id="name" type="text" [formControl]="name" required>
 
   <label for="last-name">Apellido: </label>
   <input id="last-name" type="text" formControlName="lastName" required>
 
-  <label for="street">Rol / Cargo: </label>
-  <input id="street" type="text" formControlName="street" required>
+  <label for="company">Empresa: </label>
+  <input id="company" type="text" [formControl]="company" required>
 
-  <label for="city">Correo: </label>
-  <input id="city" type="text" formControlName="city" required>
+  <label for="rol">Rol / Cargo: </label>
+  <input id="rol" type="text" [formControl]="rol" required>
 
-  <div formGroupName="address">
+  <label for="email">Correo </label>
+  <input id="email" type="text" [formControl]="email" required>
+
+  <div formGroupName="incidencia">
     <h2>Datos de incidencia</h2>
 
-    <label for="state">Título de incidencia: </label>
-    <input id="state" type="text" formControlName="state" required>
+    <label for="tituloIncidencia">Título de incidencia: </label>
+    <input id="tituloIncidencia" type="text" formControlName="tituloIncidencia" required>
 
-    <label for="zip">Detalle de incidencia: </label>
-    <input id="zip"type="text" formControlName="zip" required>
+    <label for="detalleIncidencia">Detalle de incidencia: </label>
+    <input id="detalleIncidencia" type="text" formControlName="detalleIncidencia" required>
   </div>
 
   <p>Complete el formulario para activar el botón de enviar.</p>

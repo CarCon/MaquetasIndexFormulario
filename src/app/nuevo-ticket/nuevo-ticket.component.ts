@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-nuevo-ticket',
@@ -10,14 +12,18 @@ import { FormArray } from '@angular/forms';
 })
 
 export class NuevoTicketComponent {
+  name = new FormControl('');
+  company = new FormControl('');
+  rol = new FormControl('');
+  email = new FormControl('');
   profileForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: [''],
-    address: this.fb.group({
-      street: [''],
+    incidencia: this.fb.group({
+      tituloIncidencia: [''],
       city: [''],
       state: [''],
-      zip: ['']
+      detalleIncidencia: ['']
     }),
     aliases: this.fb.array([
       this.fb.control('')
@@ -33,8 +39,8 @@ export class NuevoTicketComponent {
   updateProfile() {
     this.profileForm.patchValue({
       firstName: '',
-      address: {
-        street: ''
+      incidencia: {
+        tituloIncidencia: ''
       }
     });
   }
